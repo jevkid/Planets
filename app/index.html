@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Planets</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body ng-app="planetsApp" ng-controller="planetsController">
+    <div>
+      <div class="header"> 
+        <h1>Title</h1>
+        <h2>Description</h2>
+      </div>
+      <div class="search-header">
+        <div class="container">
+          <input type="text" ng-model="planetSearch" placeholder="Seach..."/>
+        </div>
+      </div>
+      <div class="container">
+        <div class="table-body">
+          <table>
+            <th>Name</th>
+            <th>Populations</th>
+            <th>Diameter</th>
+            <th>Rotation Period</th>
+            <th>Orbital Period</th>
+            <th>Terrain</th>
+            <th>Films</th>
+            <tr ng-repeat="planet in planetList.results">
+              <td>{{planet.name}}</td>
+              <td>{{planet.population}}</td>
+              <td>{{planet.diameter}}</td>
+              <td>{{planet.rotation_period}}</td>
+              <td>{{planet.orbital_period}}</td>
+              <td>{{planet.terrain}}</td>
+              <td>
+                <span ng-repeat="film in planet.filmList">{{film}}{{film.length > 1 && !$last ? ", " : ""}}</span>
+              </td>
+            </tr>
+          </table>
+          <div class="page-navigation">
+            <a> First </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="js/app.js"></script>    
+    <script src="js/controllers.js"></script>    
+    <script src="js/services.js"></script>    
+  </body>
+</html>

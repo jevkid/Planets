@@ -1,0 +1,51 @@
+.header {
+	width: 100%;
+	background-color: #000000;
+	text-align: center;
+}
+
+.header {
+	padding: 25px;
+}
+
+.header h1 {
+	color: #FFFFFF;
+	margin: 0;
+}
+
+.header h2 {
+	color: #FFFFFF;
+}
+
+.search-header {
+	padding: 10px;
+	background-color: #CCCCCC;
+}
+
+.table-body {
+	background-color: #FFFFFF;
+	padding: 10px;
+}
+
+.table-body table th {
+	padding: 10px;
+	background-color: #98a07b;	
+	color: #FFFFFF;
+}
+
+.table-body table th:first-child {
+	border-radius: 5px 0 0 0;
+}
+
+.table-body table th:last-child {
+	border-radius: 0 5px 0 0;
+}
+
+.table-body table tr td {
+	padding: 10px;
+}
+
+.page-navigation {
+	padding: 10px;
+	float: right;
+}
