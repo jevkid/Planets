@@ -2,7 +2,7 @@ angular.module('planetsApp.controllers', []).
 	
 	controller('planetsController', function($scope, planetsApiService) {
 
-	$scope.planetSearch = null;
+	$scope.planetFilter = null;
 	$scope.planetList = [];
 
 	planetsApiService.getPlanets().success(function (data) {

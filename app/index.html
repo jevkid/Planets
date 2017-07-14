@@ -17,7 +17,7 @@
       </div>
       <div class="search-header">
         <div class="container">
-          <input type="text" ng-model="planetSearch" placeholder="Seach..."/>
+          <input type="text" ng-model="planetFilter" placeholder="Seach..."/>
         </div>
       </div>
       <div class="container">
@@ -30,7 +30,7 @@
             <th>Orbital Period</th>
             <th>Terrain</th>
             <th>Films</th>
-            <tr ng-repeat="planet in planetList.results">
+            <tr ng-repeat="planet in planetList.results | filter: planetFilter ? planetFilter : all">
               <td>{{planet.name}}</td>
               <td>{{planet.population}}</td>
               <td>{{planet.diameter}}</td>
