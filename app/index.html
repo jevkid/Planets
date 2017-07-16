@@ -7,30 +7,59 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700" rel="stylesheet">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body ng-app="planetsApp" ng-controller="planetsController">
     <div>
-      <div class="header"> 
-        <h1>Title</h1>
-        <h2>Description</h2>
+      <div class="header">
+        <h1>PLANETS OF STAR WARS</h1>
+        <h3>Find information about the planet you are looking for...</h3>
+        <div class="twinkling"></div>
       </div>
       <div class="search-header">
         <div class="container">
-          <input type="text" ng-model="planetFilter" placeholder="Seach..."/>
+          <input type="text" ng-model="planetFilter" placeholder="Search..."/>
         </div>
       </div>
       <div class="container">
         <div class="table-body">
           <table>
-            <th>Name</th>
-            <th>Populations</th>
-            <th>Diameter</th>
-            <th>Rotation Period</th>
-            <th>Orbital Period</th>
+            <th>
+              <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse"">
+                Name
+                <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </th>
+            <th>
+              <a href="#" ng-click="sortType = 'population'; sortReverse = !sortReverse"">
+                Population
+                <span ng-show="sortType == 'population' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'population' && sortReverse" class="fa fa-caret-up"></span>
+            </th>
+            <th>
+              <a href="#" ng-click="sortType = 'diameter'; sortReverse = !sortReverse"">
+                Diameter
+                <span ng-show="sortType == 'diameter' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'diameter' && sortReverse" class="fa fa-caret-up"></span>
+            </th>
+            <th>
+              <a href="#" ng-click="sortType = 'rotation_period'; sortReverse = !sortReverse"">
+                Rotation Period
+                <span ng-show="sortType == 'rotation_period' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'rotation_period' && sortReverse" class="fa fa-caret-up"></span>
+            </th>
+            <th>
+              <a href="#" ng-click="sortType = 'orbital_period'; sortReverse = !sortReverse"">
+                Orbital Period
+                <span ng-show="sortType == 'orbital_period' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'orbital_period' && sortReverse" class="fa fa-caret-up"></span>
+            </th>
             <th>Terrain</th>
             <th>Films</th>
-            <tr ng-repeat="planet in planetList.results | filter: planetFilter ? planetFilter : all">
+            <tr ng-repeat="planet in planetList.results | filter: planetFilter ? planetFilter : all | orderBy:sortType:sortReverse">
               <td>{{planet.name}}</td>
               <td>{{planet.population}}</td>
               <td>{{planet.diameter}}</td>
@@ -43,7 +72,17 @@
             </tr>
           </table>
           <div class="page-navigation">
-            <a> First </a>
+            <a ng-show="homePage !== 1" ng-click="planetRequest(1)"> First </a>
+            <a ng-show="homePage !== 1" ng-click="planetRequest(planetList.previous)">
+              <span class="fa fa-caret-left"></span>
+            </a>
+            <span class="page" ng-class="homePage === num ? 'active' : false" ng-repeat="num in pageList track by $index">
+              <a ng-click="planetRequest(num)">{{num}}</a>
+            </span>
+            <a ng-show="homePage !== pageList.length" ng-click="planetRequest(planetList.next)">
+              <span class="fa fa-caret-right"></span>
+            </a>
+            <a ng-show="homePage !== pageList.length" ng-click="planetRequest(pageList.length)"> Last </a>
           </div>
         </div>
       </div>

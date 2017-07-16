@@ -1,36 +1,52 @@
 .header {
 	width: 100%;
-	background-color: #000000;
+	background-color: #0F1C34;
 	text-align: center;
-}
-
-.header {
 	padding: 25px;
+	background:#000 url(/img/stars.png) repeat top center;
+  background-size: 150px;
+  z-index:0;
+
+  font-family: 'PT Sans Narrow';
 }
 
 .header h1 {
-	color: #FFFFFF;
+	color: #FFE81F;
 	margin: 0;
+	z-index: 100;
+	position: relative;
+	font-size: 4em;
 }
 
-.header h2 {
+.header h3 {
 	color: #FFFFFF;
+	z-index: 100;
+	position: relative;
 }
 
 .search-header {
 	padding: 10px;
-	background-color: #CCCCCC;
+	background-color: #445D76;
 }
 
 .table-body {
 	background-color: #FFFFFF;
-	padding: 10px;
+	padding: 10px 0;
 }
 
 .table-body table th {
 	padding: 10px;
-	background-color: #98a07b;	
+	background-color: #27519A;	
 	color: #FFFFFF;
+	width: 10%;
+}
+
+.table-body table th a {
+	color: #FFFFFF;	
+}
+
+.table-body table th:hover {
+	cursor: : pointer;	
 }
 
 .table-body table th:first-child {
@@ -45,7 +61,83 @@
 	padding: 10px;
 }
 
+.table-body table tr td {
+	padding: 10px;
+}
+
+.table-body table tr:nth-child(odd) {
+	background-color: #EFEFEF;
+}	
+
 .page-navigation {
 	padding: 10px;
 	float: right;
 }
+
+.page-navigation .active {
+	background-color: #EFEFEF;
+	padding: 5px;
+	border-radius: 50% 25%;
+}
+
+.page-navigation .page a {
+	padding: 5px;
+	color: #27519A;
+	text-decoration: none;
+}
+
+.page-navigation a:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.header .twinkling{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height: 125px;
+  display:block;
+}
+
+/** 
+* Animation adapted from 
+* https://codepen.io/WebSonick/pen/vjmgu
+**/
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+.header .twinkling {
+  background: transparent url(/img/twinkle.png) repeat top center;
+  z-index:1;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+
+
+
+
+
+

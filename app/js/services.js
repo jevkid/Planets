@@ -4,11 +4,13 @@ angular.module('planetsApp.services', []).
 
 		var planetsAPI = {};
 
-		planetsAPI.getPlanets = function(){
+		planetsAPI.getPlanets = function(page){
+			var planetUrl = 'http://swapi.co/api/planets/';
+			page = page && page !== null ? '?page=' + page : '?page=1';
 			return $http({
 				type: 'GET',
 				contentType: 'application/json',
-				url: 'http://swapi.co/api/planets/'
+				url: planetUrl + page
 			});
 		}
 
