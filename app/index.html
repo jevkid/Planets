@@ -75,13 +75,13 @@
           </table>
           <div class="page-navigation">
             <a ng-show="currentPage !== 1" ng-click="planetRequest(1)"> First </a>
-            <a ng-show="currentPage !== 1" ng-click="planetRequest(planetList.previous)">
+            <a ng-show="currentPage !== 1" ng-click="planetRequest(currentPage-1)">
               <span class="fa fa-caret-left"></span>
             </a>
             <span class="page" ng-class="currentPage === num ? 'active' : false" ng-repeat="num in pageList track by $index">
               <a ng-click="planetRequest(num)">{{num}}</a>
             </span>
-            <a ng-show="currentPage !== pageList.length" ng-click="planetRequest(planetList.next)">
+            <a ng-show="currentPage !== pageList.length" ng-click="planetRequest(currentPage+1)">
               <span class="fa fa-caret-right"></span>
             </a>
             <a ng-show="currentPage !== pageList.length" ng-click="planetRequest(pageList.length)"> Last </a>

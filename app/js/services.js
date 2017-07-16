@@ -6,14 +6,14 @@ angular.module('planetsApp.services', []).
 		// Get data from planets endpoint
 		planetsAPI.getPlanets = function(page, input){
 
-			var planetUrl = 'http://swapi.co/api/planets/';
-			page = page && input ? '?page=' + page : '';
+			page = page ? '?page=' + page : '';
 			input = page && input ? '&search=' + input : (input && !page ? '?search=' + input : '');
 
+			var planetUrl = 'http://swapi.co/api/planets/' + page + input;
 			return $http({
 				type: 'GET',
 				contentType: 'application/json',
-				url: planetUrl + page + input
+				url: planetUrl
 			});
 
 		};
