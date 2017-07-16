@@ -28,12 +28,32 @@
 	margin-top: 15px;
 }
 
+.search-header a {
+	padding: 7px;
+	background-color: #C2C2C2;
+	border-radius: 5px;
+	color: #000000;
+}
+
+.search-header a:hover {
+	cursor: pointer;
+	color: #FFE81F;
+}
+
 .search-header input {
   border: 1px solid #C2C2C2;
   box-shadow: 1px 1px 4px #EBEBEB;
   border-radius: 3px;
   padding: 5px;
   outline: none;
+}
+
+.search-header input.left {
+	float: left;
+}
+
+.search-header input.right {
+	float: right;
 }
 
 .table-body {

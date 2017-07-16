@@ -3,18 +3,23 @@ angular.module('planetsApp.services', []).
 	factory('planetsApiService', function($http) {
 
 		var planetsAPI = {};
+		// Get data from planets endpoint
+		planetsAPI.getPlanets = function(page, input){
 
-		planetsAPI.getPlanets = function(page){
 			var planetUrl = 'http://swapi.co/api/planets/';
-			page = page && page !== null ? '?page=' + page : '?page=1';
+			page = page && input ? '?page=' + page : '';
+			input = page && input ? '&search=' + input : (input && !page ? '?search=' + input : '');
+
 			return $http({
 				type: 'GET',
 				contentType: 'application/json',
-				url: planetUrl + page
+				url: planetUrl + page + input
 			});
-		}
 
+		};
+		// Get data from films endpoint
 		planetsAPI.getFilmNames = function(filmUrl){
+
 			var filmNames = [];
 			for(var i = 0; i < filmUrl.length; i++){				
 				$http({
@@ -25,8 +30,9 @@ angular.module('planetsApp.services', []).
 					filmNames.push(data.title);
 				});
 			}
+
 			return filmNames;
-		}
+		};
 
 		return planetsAPI;
 

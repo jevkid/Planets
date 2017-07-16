@@ -20,7 +20,9 @@
       </div>
       <div class="search-header">
         <div class="container">
-          <input type="text" ng-model="planetFilter" placeholder="Search..."/>
+          <input type="text" ng-model="planetInput" placeholder="Search..."/>
+          <a ng-click="planetRequest(null, planetInput)"><i class="fa fa-search"></i></a>
+          <a ng-click="planetRequest(1)">Clear</i></a>
         </div>
       </div>
       <div class="container">
@@ -72,17 +74,17 @@
             </tr>
           </table>
           <div class="page-navigation">
-            <a ng-show="homePage !== 1" ng-click="planetRequest(1)"> First </a>
-            <a ng-show="homePage !== 1" ng-click="planetRequest(planetList.previous)">
+            <a ng-show="currentPage !== 1" ng-click="planetRequest(1)"> First </a>
+            <a ng-show="currentPage !== 1" ng-click="planetRequest(planetList.previous)">
               <span class="fa fa-caret-left"></span>
             </a>
-            <span class="page" ng-class="homePage === num ? 'active' : false" ng-repeat="num in pageList track by $index">
+            <span class="page" ng-class="currentPage === num ? 'active' : false" ng-repeat="num in pageList track by $index">
               <a ng-click="planetRequest(num)">{{num}}</a>
             </span>
-            <a ng-show="homePage !== pageList.length" ng-click="planetRequest(planetList.next)">
+            <a ng-show="currentPage !== pageList.length" ng-click="planetRequest(planetList.next)">
               <span class="fa fa-caret-right"></span>
             </a>
-            <a ng-show="homePage !== pageList.length" ng-click="planetRequest(pageList.length)"> Last </a>
+            <a ng-show="currentPage !== pageList.length" ng-click="planetRequest(pageList.length)"> Last </a>
           </div>
         </div>
       </div>
