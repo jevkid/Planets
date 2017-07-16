@@ -2,6 +2,7 @@ angular.module('planetsApp.controllers', []).
 	
 	controller('planetsController', function($scope, planetsApiService) {
 
+	$scope.planetInput = null;
 	$scope.planetList = [];
 	$scope.pageList = [];
 	$scope.currentPage = 1;

@@ -61,7 +61,7 @@
             </th>
             <th>Terrain</th>
             <th>Films</th>
-            <tr ng-repeat="planet in planetList.results | filter: planetFilter ? planetFilter : all | orderBy:sortType:sortReverse">
+            <tr ng-repeat="planet in planetList.results | filter: planetInput ? planetInput : all | orderBy:sortType:sortReverse">
               <td>{{planet.name}}</td>
               <td>{{planet.population}}</td>
               <td>{{planet.diameter}}</td>
