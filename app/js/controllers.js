@@ -27,7 +27,7 @@ angular.module('planetsApp.controllers', []).
 
 			if(!input){
 				paginate(page, data.count);
-				$scope.planetInput = null;
+				$scope.planetInput = null;			
 			}
 			// Set the planet list with the data returned
 			$scope.planetList = data;
