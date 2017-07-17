@@ -6,6 +6,8 @@ This project used `angular-seed` as a skeleton to get Angular and a simple http 
 
 To run locally, clone this repo, run `npm install` to ensure all dependencies are installed, and then run `npm start` to start the server. The site will be available on port 8000.
 
+Or you can view the site at https://jevkid.github.io/Planets/app/, however since GitHub Pages enforces `https` on the default domain, you may have to manually enable the unsafe scripts in your browser.
+
 ### API
 
 The data is pulled from the following API:  http://swapi.co/api/planets/ 
