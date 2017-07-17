@@ -20,6 +20,6 @@ The user can search in one of two ways- filtering through the displayed results 
 
 ### Sources
 
-angularjs: https://angularjs.org/
-bower: http://bower.io/
-http-server: https://github.com/indexzero/http-server
+* angularjs: https://angularjs.org/
+* bower: http://bower.io/
+* http-server: https://github.com/indexzero/http-server
